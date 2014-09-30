@@ -2,14 +2,14 @@ var Nemo = require('nemo'),
     Navigate = require('../pages/navigate'),
     plugins = require('../config/nemo-plugins'),
     config = {
-        'view': ['payPalLogin_locator']
+        'view': ['payPalLogin_locator','payPalHomePage_locator']
     };
 
 process.env['PATH'] += ':' + process.env['HOME'];
 
 process.env.nemoData = JSON.stringify({
 
-    targetBrowser: "firefox",
+    targetBrowser: "chrome",
     targetServer: "localhost",
     "serverProps": {
         "port": 4444
@@ -19,9 +19,9 @@ process.env.nemoData = JSON.stringify({
     },
     seleniumJar: "/usr/local/bin/selenium-server-standalone.jar",
     targetBaseUrl: "http://www.paypal.com/",
-    payPalUsername: "myetchinatest2@paypal.com",
-    payPalPassword: "11111111",
-    autoBaseDir: "/Users/kugajjar/Documents/workspace/nemo-grunt-cucumberjs/test"
+    payPalUsername: "your_username",
+    payPalPassword: "your_password",
+    autoBaseDir: process.cwd() + "/test"
 });
 
 var WorldConstructor = function WorldConstructor(callback) {

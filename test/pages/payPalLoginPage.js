@@ -25,7 +25,11 @@ PayPalLoginPage.prototype = {
 
         loginButton.click();
 
-        driveX.waitForElement(submit, 10000, 'Email button was not displayed').then(function () {
+        console.log("waiting now");
+        this.nemo.driver.sleep(10000).then(function(){
+
+            driveX.waitForElement(submit, 10000, 'Email button was not displayed').then(function () {
+
             emailBox.sendKeys(email);
 
             console.log("email clicked...");
@@ -34,7 +38,9 @@ PayPalLoginPage.prototype = {
 
             submit.click();
 
+            });
         });
+
 
         return Q.resolve();
     }
