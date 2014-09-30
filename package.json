@@ -1,12 +1,12 @@
 {
   "name": "nemo-grunt-cucumberjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "nemo cucumber js example",
   "main": "index.js",
   "scripts": {
     "test": "grunt"
   },
-  "author": "kushang gajjar <kugajjar@paypal.com>",
+  "author": "kushang gajjar <g.kushang@gmail.com>",
   "devDependencies": {
     "cucumber": "0.4.4",
     "grunt": "^0.4.5",
@@ -27,5 +27,17 @@
   },
   "dependencies": {
     "node-assertthat": "^0.2.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kugajjar/nemo-grunt-cucumberjs.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kugajjar/nemo-grunt-cucumberjs/issues"
+  },
+  "homepage": "https://github.com/kugajjar/nemo-grunt-cucumberjs"
 }
