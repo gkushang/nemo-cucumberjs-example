@@ -1,6 +1,6 @@
 {
   "name": "nemo-grunt-cucumberjs",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "nemo cucumber js example",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,8 @@
     "nemo-mocha-factory": "^0.1.1",
     "nemo-view": "^0.1.5",
     "q": "1.0.0"
+  },
+  "dependencies": {
+    "node-assertthat": "^0.2.1"
   }
 }
