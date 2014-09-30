@@ -14,10 +14,8 @@ Download Selenium Jar version 2.42.2 and create a symbolic lunk
 ln -s /Users/yourname/path/to/selenium-server-standalone-2.42.1.jar /usr/local/bin/selenium-server-standalone.jar
 ```
 
-=======
 Download Chromedriver to your $HOME path
 
->>>>>>> Stashed changes
 Install and start the application.
 
 ```bash
