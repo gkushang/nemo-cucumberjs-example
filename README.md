@@ -13,24 +13,11 @@ This example includes,
 
 Sample HTML report is attached to the repository as cucumber_html_report.png
 
-## Setup WebDriver
-
-Download Selenium Jar version 2.43.0 and create a symbolic lunk
-
-``` shell
-ln -s /Users/yourname/path/to/selenium-server-standalone-2.43.0.jar /usr/local/bin/selenium-server-standalone.jar
-```
-
-Download Chromedriver
-``` shell
-brew install chromedriver
-```
-
-Install and start the application.
+## How to run tests
 
 ```bash
-$ git clone https://github.com/gkushang/nemo-grunt-cucumberjs.git
-$ cd nemo-grunt-cucumberjs
+$ git clone https://github.com/gkushang/nemo-cucumberjs-example.git
+$ cd nemo-cucumberjs-example
 $ npm install
 ```
 
