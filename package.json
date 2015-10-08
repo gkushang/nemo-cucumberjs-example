@@ -15,8 +15,7 @@
 		"grunt-config-dir": "^0.3.2",
 		"grunt-cucumberjs": "^0.8.0",
 		"nemo": "^1.0.6",
-		"nemo-view": "^1.2.0",
-		"q": "1.0.0"
+		"nemo-view": "^1.2.0"
 	},
 	"directories": {
 		"test": "test"
