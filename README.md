@@ -1,6 +1,13 @@
 # nemo-grunt-cucumberjs
 
-Grunt task to run Cucumber tests with Nemo and produces HTML test reports
+Nemo + CucumberJS with HTML reports
+
+This example includes,
+ * nemo with cucumberjs
+ * grunt task to run cucumber scenarios
+ * page objects
+ * chai assertion for web-driver promises
+ * cucumber HTML reports
 
 ## HTML Report
 
