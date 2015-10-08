@@ -1,4 +1,4 @@
-# nemo-grunt-cucumberjs
+# nemo-cucumberjs-example
 
 Nemo + CucumberJS with HTML reports
 

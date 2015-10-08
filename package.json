@@ -1,6 +1,6 @@
 {
-	"name": "nemo-grunt-cucumberjs",
-	"version": "1.0.2",
+	"name": "nemo-cucumberjs-example",
+	"version": "1.0.0",
 	"description": "nemo cucumber js example with page objects, HTML cucumber reports and chai for webdriver promises",
 	"main": "index.js",
 	"scripts": {
