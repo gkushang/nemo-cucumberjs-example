@@ -1,7 +1,11 @@
 Feature: PayPal Login
 
-  Scenario: Login to PayPal
+  In order to see account
+  Fred, a PayPal customer
+  Wants to login to PayPal
 
-    Given I login to PayPal
-    Then I should be logged in
+  @smoke @loginSuccess
+  Scenario: Fred successfully logs in to PayPal
+    When Fred logs into PayPal
+    Then he should be logged in successfully
 

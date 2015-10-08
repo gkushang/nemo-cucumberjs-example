@@ -1,6 +1,0 @@
-{
-    "logoutButton": {
-        "locator": ".btn.btn-small.btn-secondary.logout",
-        "type": "css"
-    }
- }

@@ -1,20 +1,15 @@
-/**
- * Created by kugajjar on 9/21/14.
- */
+'use strict';
 
-function Navigate(nemo) {
-    this.driver = nemo.driver;
-}
+var loginPage = require('./loginPage');
 
-Navigate.prototype = {
+module.exports = function navigate(nemo) {
 
-    to: function (url) {
-        this.driver.navigate().to(url).
-            then(function () {
-                console.log('Successfully navigated to ' + url);
-            });
-        return this;
-    }
+	var toLogin = function(url) {
+		nemo.driver.get(url);
+		return loginPage(nemo);
+	};
+
+	return {
+		toLogin: toLogin
+	}
 };
-
-module.exports = Navigate;

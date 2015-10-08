@@ -1,29 +1,24 @@
-
 'use strict';
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
-    grunt.initConfig({
-            cucumberjs: {
-                options: {
-                    format: 'html',
-                    output: 'test/report/cucumber-report.html',
-                    theme: 'bootstrap'
-                },
-                my_features: ['test/features/login.feature']
-            }
-        });
+	grunt.initConfig({
+		cucumberjs: {
+			options: {
+				format: 'html',
+				output: 'test/report/cucumber-report.html',
+				theme: 'bootstrap'
+			},
+			my_features: ['test/features/']
+		}
+	});
 
-    grunt.loadNpmTasks('grunt-cucumberjs');
+	grunt.loadNpmTasks('grunt-cucumberjs');
+	require('grunt-config-dir')(grunt, {
+		configDir: require('path').resolve('tasks')
+	});
 
-//
-//    // Load the project's grunt tasks from a directory
-//    require('grunt-config-dir')(grunt, {
-//        configDir: require('path').resolve('tasks')
-//    });
-
-    grunt.registerTask('default', ['jshint', 'nodemon']);
-//    grunt.registerTask('build', [ 'jshint', 'less', 'requirejs', 'i18n', 'copyto' ]);
-//    grunt.registerTask('test', [ 'jshint', 'mochacli' ]);
+	grunt.registerTask('smoke', ['cucumberjs:smoke']);
+	grunt.registerTask('acceptance', ['cucumberjs:acceptance']);
 };
 
