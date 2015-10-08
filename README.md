@@ -1,6 +1,6 @@
 # nemo-cucumberjs-example
 
-Nemo + CucumberJS with HTML reports
+[Nemo][1] + [CucumberJS][2] with [HTML reports][3]
 
 This example includes,
  * nemo with cucumberjs
@@ -45,3 +45,7 @@ Run Cucumber smoke tests
 ```bash
 $ grunt smoke
 ```
+
+[1]: https://github.com/paypal/nemo "nemo"
+[2]: https://github.com/cucumber/cucumber-js "cucumber.js"
+[3]: https://github.com/mavdi/grunt-cucumberjs "HTML reports"
