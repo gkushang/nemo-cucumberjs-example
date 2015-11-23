@@ -16,7 +16,7 @@
     "grunt-cucumberjs": "^0.8.0",
     "grunt-sauce-connect-launcher": "^0.3.0",
     "load-grunt-config": "^0.19.0",
-    "nemo": "^1.1.1",
+    "nemo": "1.0.6",
     "nemo-saucelabs": "^1.0.6",
     "nemo-view": "^1.2.0",
     "nemo-window": "^1.0.3",

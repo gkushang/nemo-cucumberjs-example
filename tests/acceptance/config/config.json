@@ -32,7 +32,7 @@
 	  "idle-timeout": 120
 	}
   },
-  "BROWSER": "firefox",
+  "BROWSER": "chrome",
   "LOCALE": "en_US",
   "BUILD": "auth-build"
 }
