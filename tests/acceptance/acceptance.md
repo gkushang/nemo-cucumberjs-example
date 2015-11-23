@@ -73,6 +73,11 @@ if your scenarios are under progress or blocked mark them as `@todo or @blocked`
 $ STAGE=stageXXXX grunt acceptance --tags=@tag1 --cucumber-debug=true
 ```
 
+#### run tests on specific Locale, by default test runs on en_US locale
+```bash
+$ STAGE=stageXXXX DEBUG=* LOCALE=fr_FR grunt acceptance --tags=@tag1 --cucumber-debug=true
+```
+
 #### acceptance tests reports (HTML)
 to see the html cucumber test report, go to ```/tests/acceptance/report```
 
