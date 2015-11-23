@@ -4,12 +4,17 @@
 #### run smoke tests
 smoke test runs all the cucumber tests tagged with @smoke
 ```bash
-$ STAGE=stageXXXX grunt smoke
+$ STAGE=stageXXXX DEBUG=* grunt smoke
 ```
+
+```bash
+$ STAGE=msmaster DEBUG=* grunt smoke
+```
+
 
 #### run acceptance tests
 ```bash
-$ STAGE=stageXXXX grunt acceptance
+$ STAGE=stageXXXX DEBUG=* grunt acceptance
 ```
 
 #### run tests on sauce labs
@@ -18,8 +23,10 @@ Pass a `SAUCE` parameter with the browser name.
 `sauce-connect` task will launch default sauce tunnel (auth-tunnel) if required.
 
 to run test on sauce labs Firefox browser
+
+e.g. run smoke test on msmaster
 ```bash
-$ STAGE=stageXXXX SAUCE=firefox grunt sauce-connect smoke
+$ STAGE=msmaster SAUCE=firefox grunt sauce-connect smoke
 ```
 
 to run test on sauce labs Chrome browser
@@ -43,7 +50,7 @@ pass user stage [USER_STAGE] with the full domain along with [STAGE]
 
 altus ci
 ```bash
-$ STAGE=stageXXXX USER_STAGE=altusUserStage.qa.paypal.com grunt smoke
+$ STAGE=stageXXXX DEBUG=* USER_STAGE=altusUserStage.qa.paypal.com grunt smoke
 ```
 
 localhost

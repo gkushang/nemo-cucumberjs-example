@@ -2,22 +2,13 @@
 
 module.exports = function(grunt) {
 
-	grunt.initConfig({
-		cucumberjs: {
-			options: {
-				format: 'html',
-				output: 'test/report/cucumber-report.html',
-				theme: 'bootstrap'
-			},
-			my_features: ['test/features/']
-		}
-	});
-
 	grunt.loadNpmTasks('grunt-cucumberjs');
-	require('grunt-config-dir')(grunt, {
-		configDir: require('path').resolve('tasks')
+	// load all grunt tasks matching the `grunt-*` pattern
+	require('load-grunt-config')(grunt, {
+		configPath: require('path').resolve('tasks')
 	});
 
+	grunt.registerTask('sauce-connect', ['sauce_connect:projectName']);
 	grunt.registerTask('smoke', ['cucumberjs:smoke']);
 	grunt.registerTask('acceptance', ['cucumberjs:acceptance']);
 };
