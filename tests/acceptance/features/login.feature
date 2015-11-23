@@ -1,3 +1,4 @@
+@login
 Feature: PayPal Login
 
   In order to see account
@@ -6,6 +7,6 @@ Feature: PayPal Login
 
   @smoke @loginSuccess
   Scenario: Fred successfully logs in to PayPal
+
     When Fred logs into PayPal
     Then he should be logged in successfully
-

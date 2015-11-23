@@ -14,6 +14,7 @@ module.exports = function() {
 	});
 
 	this.Then(/^he should be logged in successfully$/, function(callback) {
+
 		this.accountPage.isVisible().should.eventually.be
 				.equal(true, 'Logout button was not visible')
 				.notify(callback);
