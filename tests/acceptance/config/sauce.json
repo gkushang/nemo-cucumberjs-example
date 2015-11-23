@@ -1,0 +1,118 @@
+{
+  "chrome": {
+	"driver": {
+	  "local": false,
+	  "serverCaps": {
+		"browserName": "chrome",
+		"platform": "OS X 10.10",
+		"version": "43.0"
+	  }
+	}
+  },
+  "firefox": {
+	"driver": {
+	  "local": false,
+	  "serverCaps": {
+		"browserName": "firefox",
+		"platform": "OS X 10.11",
+		"version": "40.0"
+	  }
+	}
+  },
+  "safari": {
+	"driver": {
+	  "local": false,
+	  "serverCaps": {
+		"browserName": "safari",
+		"platform": "OS X 10.11",
+		"version": "9.0"
+	  }
+	}
+  },
+  "iphone": {
+	"driver": {
+	  "local": false,
+	  "serverCaps": {
+		"browserName": "iphone",
+		"platform": "OS X 10.10",
+		"version": "9.0",
+		"deviceName": "iPhone 6",
+		"alwaysAcceptAlerts": true
+	  }
+	}
+  },
+  "ipad": {
+	"driver": {
+	  "local": false,
+	  "serverCaps": {
+		"browserName": "iphone",
+		"platform": "OS X 10.10",
+		"version": "8.4",
+		"deviceName": "iPad Air",
+		"alwaysAcceptAlerts": true
+	  }
+	}
+  },
+  "android": {
+	"driver": {
+	  "local": false,
+	  "serverCaps": {
+		"browserName": "android",
+		"platform": "Linux",
+		"version": "4.4",
+		"deviceName": "Android Emulator",
+		"alwaysAcceptAlerts": true
+	  }
+	}
+  },
+  "ie8": {
+	"driver": {
+	  "local": false,
+	  "serverCaps": {
+		"browserName": "internet explorer",
+		"platform": "Windows XP",
+		"version": "8.0"
+	  }
+	}
+  },
+  "ie9": {
+	"driver": {
+	  "local": false,
+	  "serverCaps": {
+		"browserName": "internet explorer",
+		"platform": "Windows 7",
+		"version": "9.0"
+	  }
+	}
+  },
+  "ie10": {
+	"driver": {
+	  "local": false,
+	  "serverCaps": {
+		"browserName": "internet explorer",
+		"platform": "Windows 8",
+		"version": "10.0"
+	  }
+	}
+  },
+  "ie11": {
+	"driver": {
+	  "local": false,
+	  "serverCaps": {
+		"browserName": "internet explorer",
+		"platform": "Windows 10",
+		"version": "11.0"
+	  }
+	}
+  },
+  "edge": {
+	"driver": {
+	  "local": false,
+	  "serverCaps": {
+		"browserName": "microsoftedge",
+		"platform": "Windows 10",
+		"version": "20.10240"
+	  }
+	}
+  }
+}
