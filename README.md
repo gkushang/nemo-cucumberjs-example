@@ -29,3 +29,4 @@ More information on how to run tests is available [here][5]
 [2]: https://saucelabs.com/ "sauceLabs"
 [3]: https://github.com/cucumber/cucumber-js "cucumber.js"
 [4]: https://github.com/mavdi/grunt-cucumberjs "HTML reports"
+[5]: https://github.com/gkushang/nemo-cucumberjs-example/blob/develop/tests/acceptance/acceptance.md
