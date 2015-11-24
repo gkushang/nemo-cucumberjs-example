@@ -20,13 +20,13 @@ module.exports = function cucumberjs(grunt) {
 
 	function getTags(tags) {
 
-		var ignoreTags = '~@blocked, ~@todo';
+		var tagsArray = ['~@blocked', '~@todo'];
 
-		if (!tags) {
-			return ignoreTags.split(',');
-		}else {
-			return tags + ', ' + (ignoreTags).split(',');
+		if(tags) {
+			tagsArray.push(tags);
 		}
+
+		return tagsArray;
 	}
 
 	return {

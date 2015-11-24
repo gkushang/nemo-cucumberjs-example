@@ -1,39 +1,39 @@
 'use strict';
 
 var sauceConfig = require('./../sauce.json'),
-	commonConfig = require('./../config.json'),
-	configKey = require('./configKeys');
+    commonConfig = require('./../config.json'),
+    configKey = require('./configKeys');
 
 module.exports = {
 
-	override: function() {
-		var stage = process.env[configKey.STAGE];
-		var sauce = process.env[configKey.SAUCE];
+    override: function() {
+        var stage = process.env[configKey.STAGE];
+        var sauce = process.env[configKey.SAUCE];
 
-		var config = {};
+        var config = {};
 
-		if (!stage) {
-			throw new Error('STAGE must be defined');
-		}
+        if (!stage) {
+            throw new Error('STAGE must be defined');
+        }
 
-		if (sauce) {
+        if (sauce) {
 
-			if (!sauceConfig[sauce]) {
-				throw new Error('SAUCE value ' + sauce + ' does not exists. Please verify your command line arguments.');
-			}
+            if (!sauceConfig[sauce]) {
+                throw new Error('SAUCE value ' + sauce + ' does not exists. Please verify your command line arguments.');
+            }
 
-			config = sauceConfig[sauce];
+            config = sauceConfig[sauce];
 
-			var providedTunnelIdentifier = process.env[configKey.SAUCE_LABS.TUNNEL_IDENTIFIER];
-			if (providedTunnelIdentifier) {
-				config.driver.serverCaps[configKey.SAUCE_LABS.TUNNEL_IDENTIFIER] = providedTunnelIdentifier;
-			}
-		}
+            var providedTunnelIdentifier = process.env[configKey.SAUCE_LABS.TUNNEL_IDENTIFIER];
+            if (providedTunnelIdentifier) {
+                config.driver.serverCaps[configKey.SAUCE_LABS.TUNNEL_IDENTIFIER] = providedTunnelIdentifier;
+            }
+        }
 
-		return config;
-	},
+        return config;
+    },
 
-	getBaseDir: function() {
-		return process.cwd() + commonConfig.baseDir;
-	}
+    getBaseDir: function() {
+        return process.cwd() + commonConfig.baseDir;
+    }
 };
