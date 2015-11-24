@@ -5,14 +5,14 @@ var configKeys = require('../../config/utils/configKeys'),
 
 var hooks = function() {
 
-	this.World = require("../../helpers/world").World;
+	this.World = require("../../helpers/world");
+	this.setDefaultTimeout(5 * 60 * 1000);
 
 	var sauce = process.env[configKeys.SAUCE];
 
-	this.After(function(done) {
+	this.After(function(scenario) {
 
-		var driver = this.driver,
-			scenario = this.scenario;
+		var driver = this.driver;
 
 		function takeScreenShot() {
 			return driver.takeScreenshot().then(function(buffer) {
@@ -34,40 +34,39 @@ var hooks = function() {
 			}
 		}
 
-		quitDriver().then(function() {
-			done();
-		}, done);
+		return quitDriver();
 
 	});
 
 
-	this.Before(function(scenario, done) {
+	this.Before(function(scenario) {
 
 		var _this = this;
 
 		this.scenario = scenario;
 
-		this.scenario.attach('running test on ' + this.config.get(configKeys.STAGE).toUpperCase() +
-			', locale: ' + JSON.stringify(this.localesHelper.getLocales()));
+		return this.World().then(function() {
 
-		debug('running scenario: ', scenario.getName());
+			_this.scenario.attach('running test on ' + _this.config.get(configKeys.STAGE).toUpperCase() +
+				', locale: ' + JSON.stringify(_this.localesHelper.getLocales()));
 
-		if (sauce) {
-			var sauceJobUrl = this.nemo.saucelabs.getJobUrl();
-			scenario.attach('<br>browser: ' + sauce + ' on sauce labs, here is the job url: ' +
-				'<a href=' + sauceJobUrl + ' target="_blank">' + sauceJobUrl + '</a>');
+			debug('running scenario: ', scenario.getName());
 
-			_this.nemo.saucelabs.updateJob({
-				name: scenario.getName(),
-				cucumber_tags: scenario.getTags(),
-				build: this.nemo._config.get(configKeys.BUILD)
-			}, function() {
-				done();
-			});
-		} else {
-			scenario.attach('browser: ' + this.nemo._config.get(configKeys.DRIVER).browser);
-			done();
-		}
+			if (sauce) {
+				var sauceJobUrl = _this.nemo.saucelabs.getJobUrl();
+				scenario.attach('<br>browser: ' + sauce + ' on sauce labs, here is the job url: ' +
+					'<a href=' + sauceJobUrl + ' target="_blank">' + sauceJobUrl + '</a>');
+
+				_this.nemo.saucelabs.updateJob({
+					name: scenario.getName(),
+					cucumber_tags: scenario.getTags(),
+					build: _this.nemo._config.get(configKeys.BUILD)
+				}, function() {
+				});
+			} else {
+				scenario.attach('browser: ' + _this.nemo._config.get(configKeys.DRIVER).browser);
+			}
+		});
 
 	});
 };
