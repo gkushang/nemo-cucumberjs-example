@@ -1,13 +1,15 @@
 # nemo-cucumberjs-example
 
-[Nemo][1] + [CucumberJS][2] with [HTML reports][3]
+[Nemo][1] integration with [CucumberJS][3] and [SauceLabs][2] with [HTML reports][4]
 
 This example includes,
  * nemo with cucumberjs
+ * execute tests locally and on sauce labs
+ * update sauce labs dashboard with test info and results
  * grunt task to run cucumber scenarios
  * page objects
  * chai assertion for web-driver promises
- * cucumber HTML reports
+ * cucumber HTML reports with screenshots
 
 ## HTML Report
 
@@ -20,19 +22,11 @@ $ git clone https://github.com/gkushang/nemo-cucumberjs-example.git
 $ cd nemo-cucumberjs-example
 $ npm install
 ```
+More information on how to run tests is available [here][5]
 
-Run Cucumber acceptance tests
-
-```bash
-$ grunt acceptance
-```
-
-Run Cucumber smoke tests
-
-```bash
-$ grunt smoke
-```
 
 [1]: https://github.com/paypal/nemo "nemo"
-[2]: https://github.com/cucumber/cucumber-js "cucumber.js"
-[3]: https://github.com/mavdi/grunt-cucumberjs "HTML reports"
+[2]: https://saucelabs.com/ "sauceLabs"
+[3]: https://github.com/cucumber/cucumber-js "cucumber.js"
+[4]: https://github.com/mavdi/grunt-cucumberjs "HTML reports"
+[5]: https://github.com/gkushang/nemo-cucumberjs-example/blob/develop/tests/acceptance/acceptance.md
