@@ -5,14 +5,15 @@ var configKeys = require('../../config/utils/configKeys'),
 
 var hooks = function() {
 
-	this.World = require("../../helpers/world").World;
-
 	var sauce = process.env[configKeys.SAUCE];
+	var cucumberStepTimeoutInMilliseconds = 400000;
 
-	this.After(function(done) {
+	this.World = require("../../helpers/world").World;
+	this.setDefaultTimeout(cucumberStepTimeoutInMilliseconds);
 
-		var driver = this.driver,
-			scenario = this.scenario;
+	this.After(function(scenario, done) {
+
+		var driver = this.driver;
 
 		function takeScreenShot() {
 			return driver.takeScreenshot().then(function(buffer) {
