@@ -1,76 +1,76 @@
 'use strict';
 
 var configKeys = require('../../config/utils/configKeys'),
-	debug = require('debug')('acceptance-test:hooks');
+    debug = require('debug')('acceptance-test:hooks');
 
 var hooks = function() {
 
-	var sauce = process.env[configKeys.SAUCE];
-	var cucumberStepTimeoutInMilliseconds = 400000;
+    var sauce = process.env[configKeys.SAUCE];
+    var cucumberStepTimeoutInMilliseconds = 400000;
 
-	this.World = require("../../helpers/world").World;
-	this.setDefaultTimeout(cucumberStepTimeoutInMilliseconds);
+    this.World = require("../../helpers/world").World;
+    this.setDefaultTimeout(cucumberStepTimeoutInMilliseconds);
 
-	this.After(function(scenario, done) {
+    this.After(function(scenario, done) {
 
-		var driver = this.driver;
+        var driver = this.driver;
 
-		function takeScreenShot() {
-			return driver.takeScreenshot().then(function(buffer) {
-				return scenario.attach(new Buffer(buffer, 'base64').toString('binary'), 'image/png');
-			});
-		}
+        function takeScreenShot() {
+            return driver.takeScreenshot().then(function(buffer) {
+                return scenario.attach(new Buffer(buffer, 'base64').toString('binary'), 'image/png');
+            });
+        }
 
-		function quitDriver() {
-			debug('quit the browser');
-			return driver.quit();
-		}
+        function quitDriver() {
+            debug('quit the browser');
+            return driver.quit();
+        }
 
-		if (sauce) {
-			this.nemo.saucelabs.isJobPassed(!scenario.isFailed(), function() {
-			});
-		} else {
-			if (scenario.isFailed()) {
-				takeScreenShot();
-			}
-		}
+        if (sauce) {
+            this.nemo.saucelabs.isJobPassed(!scenario.isFailed(), function() {
+            });
+        } else {
+            if (scenario.isFailed()) {
+                takeScreenShot();
+            }
+        }
 
-		quitDriver().then(function() {
-			done();
-		}, done);
+        quitDriver().then(function() {
+            done();
+        }, done);
 
-	});
+    });
 
 
-	this.Before(function(scenario, done) {
+    this.Before(function(scenario, done) {
 
-		var _this = this;
+        var _this = this;
 
-		this.scenario = scenario;
+        this.scenario = scenario;
 
-		this.scenario.attach('running test on ' + this.config.get(configKeys.STAGE).toUpperCase() +
-			', locale: ' + JSON.stringify(this.localesHelper.getLocales()));
+        this.scenario.attach('running test on ' + this.config.get(configKeys.STAGE).toUpperCase() +
+            ', locale: ' + JSON.stringify(this.localesHelper.getLocales()));
 
-		debug('running scenario: ', scenario.getName());
+        debug('running scenario: ', scenario.getName());
 
-		if (sauce) {
-			var sauceJobUrl = this.nemo.saucelabs.getJobUrl();
-			scenario.attach('<br>browser: ' + sauce + ' on sauce labs, here is the job url: ' +
-				'<a href=' + sauceJobUrl + ' target="_blank">' + sauceJobUrl + '</a>');
+        if (sauce) {
+            var sauceJobUrl = this.nemo.saucelabs.getJobUrl();
+            scenario.attach('<br>browser: ' + sauce + ' on sauce labs, here is the job url: ' +
+                '<a href=' + sauceJobUrl + ' target="_blank">' + sauceJobUrl + '</a>');
 
-			_this.nemo.saucelabs.updateJob({
-				name: scenario.getName(),
-				cucumber_tags: scenario.getTags(),
-				build: this.nemo._config.get(configKeys.BUILD)
-			}, function() {
-				done();
-			});
-		} else {
-			scenario.attach('browser: ' + this.nemo._config.get(configKeys.DRIVER).browser);
-			done();
-		}
+            _this.nemo.saucelabs.updateJob({
+                name: scenario.getName(),
+                cucumber_tags: scenario.getTags(),
+                build: this.nemo._config.get(configKeys.BUILD)
+            }, function() {
+                done();
+            });
+        } else {
+            scenario.attach('browser: ' + this.nemo._config.get(configKeys.DRIVER).browser);
+            done();
+        }
 
-	});
+    });
 };
 
 module.exports = hooks;
