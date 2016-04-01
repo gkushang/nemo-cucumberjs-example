@@ -1,6 +1,6 @@
 {
   "name": "nemo-cucumberjs-example",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "integrate nemo with Sauce Labs, CucumberJS. Automate your test suite with Page Objects and publish HTML reports. Use Chai-As-Promised assertions for webdriver promises",
   "main": "index.js",
   "scripts": {
